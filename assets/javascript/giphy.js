@@ -3,6 +3,7 @@ var gifButtons = {
 }
 
 function createButtons() {
+		$("#buttons-here").empty();
 		for (i = 0; i < gifButtons.topics.length; i++) {
 			var newButton = $('<button class="gif-buttons" data-game="' + gifButtons.topics[i] + '">' + gifButtons.topics[i] + '</button>');
 			$("#buttons-here").append(newButton);
@@ -11,7 +12,7 @@ function createButtons() {
 createButtons();
 
 
-$('button').on("click", function(){
+function showGifs() {
 	var game = $(this).attr("data-game");
 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + game + "&api_key=dc6zaTOxFJmzC&limit=10";
 
@@ -24,11 +25,11 @@ $('button').on("click", function(){
     	for (var i = 0; i < results.length; i++) {
     		var gifDiv = $('<div class="gif-container">');
     		var rating = results[i].rating;
-    		var gifRating = $('<p>').text("Rating: " + rating);
+    		var gifRating = $('<p>').text("Rated: " + rating);
     		var gifThumb = $('<img data-still="' + results[i].images.fixed_height_still.url + '" data-animate="' + results[i].images.fixed_height.url + '" class="gif-result">');
     		gifThumb.attr('src', results[i].images.fixed_height_still.url);
-    		gifDiv.append(gifRating);
     		gifDiv.append(gifThumb.attr('data-state', "still"));
+    		gifDiv.append(gifRating);
     		$('#gifs-here').prepend(gifDiv);		
     	}
     	$(".gif-result").on("click", function() {
@@ -42,7 +43,20 @@ $('button').on("click", function(){
       }
 })
    })
-});
+};
+$(document).on("click", '.gif-buttons', showGifs);
+
+$("#add-game").on("click", function(event) {
+		event.preventDefault();
+		var newGame = $("#search-more-games").val().trim();
+		if (gifButtons.topics.indexOf(newGame) < 0) {
+        gifButtons.topics.push(newGame);
+        createButtons();
+    }
+      });
+
+
+
 
 
 
