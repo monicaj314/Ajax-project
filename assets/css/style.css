@@ -1,0 +1,17 @@
+#buttons-here {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#gifs-here {
+	margin-top: 30px;
+	text-align: center;
+}
+.gif-buttons {
+	background-color: #800080;
+	color: white;
+	padding: 10px;
+}
+.gif-container {
+	display: inline-block;
+}
