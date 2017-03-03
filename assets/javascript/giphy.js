@@ -50,7 +50,7 @@ $(document).on("click", '.gif-buttons', showGifs);
 $("#add-game").on("click", function(event) {
 		event.preventDefault();
 		var newGame = $("#search-more-games").val().trim();
-		if (gifButtons.topics.indexOf(newGame) < 0 && newgame != null) {
+		if (gifButtons.topics.indexOf(newGame) < 0 && newGame != null) {
         gifButtons.topics.push(newGame);
         createButtons();
 
