@@ -14,6 +14,7 @@ createButtons();
 
 function showGifs() {
 	var game = $(this).attr("data-game");
+	$('#gifs-here').empty();
 	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + game + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 		$.ajax({
@@ -33,10 +34,10 @@ function showGifs() {
     		$('#gifs-here').prepend(gifDiv);		
     	}
     	$(".gif-result").on("click", function() {
-		var state = $(this).attr("data-state");
-		if (state === "still") {
-		$(this).attr("src", $(this).attr("data-animate"));
-		$(this).attr("data-state", "animate");
+			var state = $(this).attr("data-state");
+			if (state === "still") {
+				$(this).attr("src", $(this).attr("data-animate"));
+				$(this).attr("data-state", "animate");
 		} else {
 		$(this).attr("src", $(this).attr("data-still"));
 		$(this).attr("data-state", "still");
@@ -49,9 +50,10 @@ $(document).on("click", '.gif-buttons', showGifs);
 $("#add-game").on("click", function(event) {
 		event.preventDefault();
 		var newGame = $("#search-more-games").val().trim();
-		if (gifButtons.topics.indexOf(newGame) < 0) {
+		if (gifButtons.topics.indexOf(newGame) < 0 && newgame != null) {
         gifButtons.topics.push(newGame);
         createButtons();
+
     }
       });
 
