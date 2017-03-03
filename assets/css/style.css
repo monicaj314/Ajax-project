@@ -1,3 +1,7 @@
+body {
+	background-image: url("assets/images/Game-Wallpaper.jpg");
+}
+
 #buttons-here {
 	text-align: center;
 	margin-top: 30px;
