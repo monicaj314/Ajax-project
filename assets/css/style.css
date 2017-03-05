@@ -1,7 +1,7 @@
 body {
 	background-image: url("../images/lich-king-wallpaper.jpg");
 	background-position: center;
-	background-attachment: fixed;	
+	background-attachment: fixed;
 }
 
 #buttons-here {
@@ -38,4 +38,25 @@ body {
 	margin: auto;
 	font-size: 1.5em;
 	font-family: "Cardo", serif;
+}
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+  	body {
+ background-size: 300%;
+	}
+	.gif-buttons {
+		margin-top: 50px;
+		font-size: 3em;
+		padding: 15px;
+		margin-left: 1px
+		margin-right 1px;
+	}
+	#search-form {
+	margin-top: 30px;
+	text-align:center;
+	line-height: 2em;
+	}
+
 }
